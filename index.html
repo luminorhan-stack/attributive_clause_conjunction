@@ -15,7 +15,7 @@
             --accent: #6366f1;
             --accent-light: #e0e7ff;
             --border: #e2e8f0;
-            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,7 +25,7 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            padding: 0 0 40px;
+            padding: 0 0 80px; /* 为底部留出更多空间 */
         }
         
         /* ---------- 顶部品牌导航 ---------- */
@@ -61,48 +61,95 @@
             font-size: 1.1rem;
         }
         
-        .brand-text {
+        .brand-text { font-weight: 700; font-size: 1.2rem; }
+        .brand-text .en { color: #1e293b; }
+        .brand-text .cn { color: #64748b; font-size: 0.85rem; font-weight: 500; margin-left: 6px; }
+        .brand-tagline { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+        
+        /* ---------- 联系方式栏目 (新加) ---------- */
+        .contact-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .contact-btn {
+            background: #07c160; /* 微信绿 */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: #06ad56;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+            display: none; /* 默认隐藏 */
+            animation: slideIn 0.3s ease-out;
+            width: 220px;
+            text-align: center;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-card.active {
+            display: block;
+        }
+
+        .contact-card h4 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .wechat-id {
+            background: #f3f4f6;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #07c160;
             font-weight: 700;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
+            border: 1px dashed #07c160;
+            display: inline-block;
         }
-        
-        .brand-text .en {
-            color: #1e293b;
-        }
-        
-        .brand-text .cn {
-            color: #64748b;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-left: 6px;
-        }
-        
-        .brand-tagline {
-            font-size: 0.8rem;
+
+        .copy-hint {
+            font-size: 0.75rem;
             color: var(--muted);
-            font-style: italic;
         }
-        
+
         /* ---------- 主容器 ---------- */
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         
-        .header {
-            text-align: center;
-            padding: 20px 20px 10px;
-        }
-        
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-        
-        .header .subtitle {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-        
+        .header { text-align: center; padding: 20px 20px 10px; }
+        .header h1 { font-size: 2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .header .subtitle { color: var(--muted); font-size: 0.95rem; }
         .header .badge-random {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -131,56 +178,14 @@
             border: 1px solid var(--border);
         }
         
-        .score-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
+        .score-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .progress-bar-wrap { flex: 1; min-width: 100px; margin: 0 20px; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 4px; transition: width 0.4s ease; }
         
-        .progress-bar-wrap {
-            flex: 1;
-            min-width: 100px;
-            margin: 0 20px;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 4px;
-            transition: width 0.4s ease;
-        }
-        
-        .btn {
-            padding: 8px 18px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .btn-outline {
-            background: #fff;
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-        
+        .btn { padding: 8px 18px; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-outline { background: #fff; color: var(--text); border: 2px solid var(--border); }
         .btn-outline:hover { background: #f8fafc; border-color: #cbd5e1; }
-        
-        .btn-brand {
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            color: #fff;
-        }
-        
-        .btn-brand:hover {
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-        }
+        .btn-brand { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; }
         
         .question-card {
             background: var(--card);
@@ -191,59 +196,15 @@
             border: 1px solid var(--border);
             transition: all 0.3s;
         }
+        .question-card.answered-correct { border-color: var(--correct); background: #f0fdf4; }
+        .question-card.answered-wrong { border-color: var(--wrong); background: #fef2f2; }
         
-        .question-card.answered-correct {
-            border-color: var(--correct);
-            background: #f0fdf4;
-        }
+        .question-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .question-number { background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; }
+        .question-text { font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 16px; padding: 4px 0; }
+        .question-text .blank { display: inline-block; width: 70px; border-bottom: 2px dashed var(--accent); text-align: center; margin: 0 4px; color: var(--accent); font-weight: 700; }
         
-        .question-card.answered-wrong {
-            border-color: var(--wrong);
-            background: #fef2f2;
-        }
-        
-        .question-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-        
-        .question-number {
-            background: var(--accent-light);
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-        
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 16px;
-            padding: 4px 0;
-        }
-        
-        .question-text .blank {
-            display: inline-block;
-            width: 70px;
-            border-bottom: 2px dashed var(--accent);
-            text-align: center;
-            margin: 0 4px;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        
-        .options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        
+        .options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
         .option-btn {
             padding: 10px 20px;
             border: 2px solid var(--border);
@@ -253,185 +214,38 @@
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.2s;
-            white-space: nowrap;
         }
+        .option-btn:hover:not(.disabled) { border-color: var(--accent); background: var(--accent-light); }
+        .option-btn.selected { border-color: var(--accent); background: var(--accent); color: #fff; }
+        .option-btn.correct-show { border-color: var(--correct); background: #d1fae5; color: #065f46; }
+        .option-btn.wrong-show { border-color: var(--wrong); background: #fee2e2; color: #991b1b; }
+        .option-btn.disabled { pointer-events: none; opacity: 0.7; }
         
-        .option-btn:hover:not(.disabled) {
-            border-color: var(--accent);
-            background: var(--accent-light);
-            transform: translateY(-1px);
-        }
-        
-        .option-btn.selected {
-            border-color: var(--accent);
-            background: var(--accent);
-            color: #fff;
-        }
-        
-        .option-btn.correct-show {
-            border-color: var(--correct);
-            background: #d1fae5;
-            color: #065f46;
-        }
-        
-        .option-btn.wrong-show {
-            border-color: var(--wrong);
-            background: #fee2e2;
-            color: #991b1b;
-        }
-        
-        .option-btn.disabled {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-        
-        .feedback {
-            margin-top: 12px;
-            padding: 14px 16px;
-            border-radius: 10px;
-            display: none;
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        
+        .feedback { margin-top: 12px; padding: 14px 16px; border-radius: 10px; display: none; font-size: 0.9rem; line-height: 1.7; }
         .feedback.show { display: block; }
+        .feedback.correct-fb { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .feedback.wrong-fb { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+        .feedback .tip-box { margin-top: 8px; padding: 8px 12px; background: rgba(0,0,0,0.05); border-radius: 6px; border-left: 3px solid currentColor; }
         
-        .feedback.correct-fb {
-            background: #ecfdf5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
-        }
+        .floating-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; }
+        .badge-trap { background: #fef3c7; color: #92400e; }
+        .badge-type { background: #f1f5f9; color: #64748b; font-size: 0.7rem; font-weight: 500; }
         
-        .feedback.wrong-fb {
-            background: #fef2f2;
-            color: #991b1b;
-            border: 1px solid #fecaca;
-        }
-        
-        .feedback .tip-box {
-            margin-top: 8px;
-            padding: 8px 12px;
-            background: rgba(0,0,0,0.05);
-            border-radius: 6px;
-            border-left: 3px solid currentColor;
-        }
-        
-        .floating-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.78rem;
-            font-weight: 700;
-        }
-        
-        .badge-trap {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        
-        .badge-compare {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        
-        /* 去掉了 badge-type 的样式，因为它不再使用了 */
-        
-        .summary {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--card);
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        
+        .summary { display: none; text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
         .summary.show { display: block; }
+        .summary .final-score { font-size: 4rem; font-weight: 800; color: var(--accent); }
         
-        .summary .final-score {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
+        .cheatsheet { background: var(--card); border-radius: 16px; padding: 24px 28px; margin-top: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .cheatsheet h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .cheatsheet .rhyme { background: linear-gradient(135deg, #fef3c7, #fef9e7); border-radius: 10px; padding: 16px 20px; font-size: 0.95rem; line-height: 2; }
+        .cheatsheet .rhyme .hl { color: #ef4444; font-weight: 700; }
         
-        .summary .grade {
-            font-size: 1.3rem;
-            margin: 8px 0 20px;
-        }
-        
-        .summary .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        
-        /* ---------- 核心口诀区 ---------- */
-        .cheatsheet {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 24px 28px;
-            margin-top: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        
-        .cheatsheet h3 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .cheatsheet .rhyme {
-            background: linear-gradient(135deg, #fef3c7, #fef9e7);
-            border-radius: 10px;
-            padding: 16px 20px;
-            font-size: 0.95rem;
-            line-height: 2;
-            font-weight: 500;
-        }
-        
-        .cheatsheet .rhyme .hl {
-            color: #ef4444;
-            font-weight: 700;
-        }
-        
-        /* ---------- 页脚品牌 ---------- */
-        .footer-brand {
-            text-align: center;
-            padding: 32px 20px 16px;
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-        
-        .footer-brand .logo-sm {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-        }
-        
-        .footer-brand .icon-sm {
-            width: 22px;
-            height: 22px;
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 800;
-        }
+        .footer-brand { text-align: center; padding: 32px 20px 16px; color: var(--muted); font-size: 0.85rem; }
         
         @media (max-width: 600px) {
             .options { flex-direction: column; }
-            .option-btn { text-align: center; }
-            .question-card { padding: 16px 14px; }
             .score-bar { flex-direction: column; align-items: stretch; text-align: center; }
-            .brand-bar { justify-content: center; text-align: center; }
+            .contact-float { bottom: 16px; right: 16px; }
         }
     </style>
 </head>
@@ -446,6 +260,17 @@
             </div>
         </div>
         <span class="brand-tagline">🧠 让每个知识盲点都被看见</span>
+    </div>
+
+    <div class="contact-float">
+        <div class="contact-card" id="contactCard">
+            <h4>💬 课程咨询 / 领取资料</h4>
+            <div class="wechat-id">lumi_lumi</div>
+            <p class="copy-hint">长按复制微信号，添加老师</p>
+        </div>
+        <button class="contact-btn" onclick="toggleContact()">
+            <span>✨ 联系卢米老师</span>
+        </button>
     </div>
 
     <div class="container">
@@ -467,8 +292,8 @@
                 <span id="answeredCount">0</span>/20 题
             </div>
             <div>
-                <button class="btn btn-outline" onclick="resetQuiz()">🔄 重做本套</button>
-                <button class="btn btn-brand" onclick="refreshNewSet()">🎲 换一套新题</button>
+                <button class="btn btn-outline" onclick="resetQuiz()">🔄 重做</button>
+                <button class="btn btn-brand" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: white;" onclick="refreshNewSet()">🎲 换一套</button>
             </div>
         </div>
         
@@ -479,12 +304,9 @@
             <div class="final-score" id="finalScore">0</div>
             <p style="color: var(--muted);">总分 200</p>
             <div class="grade" id="gradeText"></div>
-            <div style="margin-top: 8px; color: var(--muted);">
-                正确：<strong id="correctCount">0</strong> / 20 题
-            </div>
             <div class="btn-group" style="margin-top: 20px;">
-                <button class="btn btn-outline" onclick="resetQuiz()">🔄 重做本套</button>
-                <button class="btn btn-brand" onclick="refreshNewSet()">🎲 换一套全新题目</button>
+                <button class="btn btn-outline" onclick="resetQuiz()">🔄 再做一次</button>
+                <button class="btn btn-brand" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: white;" onclick="refreshNewSet()">🎲 挑战新题</button>
             </div>
         </div>
 
@@ -501,21 +323,17 @@
     </div>
 
     <div class="footer-brand">
-        <span>
-            由 
-            <span class="logo-sm">
-                <span class="icon-sm">L</span>
-                Lumi's <span style="font-weight:400;color:var(--muted);">卢米</span>
-            </span>
-            倾心打造 · 分享给一起备考的小伙伴吧 ✨
-        </span>
+        <span>由 Lumi's 卢米 倾心打造 · 助你搞定定语从句 ✨</span>
     </div>
     
     <script>
-    // ============================================================
-    // 词汇库 & 生成器代码 (保持不变)
-    // ============================================================
-    
+    // 联系方式切换逻辑
+    function toggleContact() {
+        const card = document.getElementById('contactCard');
+        card.classList.toggle('active');
+    }
+
+    // 核心题库逻辑
     const NOUNS_PLACE = ["museum", "library", "hospital", "restaurant", "hotel", "park", "school", "university", "laboratory", "theater", "stadium", "airport", "station", "gallery", "café", "market", "church", "factory", "village", "building", "apartment", "office", "studio", "garden", "square", "temple"];
     const NOUNS_TIME = ["day", "moment", "year", "month", "week", "morning", "afternoon", "evening", "night", "summer", "winter", "spring", "autumn", "decade", "century", "period", "era", "age", "occasion", "festival", "holiday", "weekend"];
     const NOUNS_THING = ["book", "painting", "film", "song", "machine", "device", "car", "bridge", "sculpture", "article", "letter", "photograph", "document", "report", "theory", "discovery", "invention", "recipe", "tool", "instrument"];
@@ -528,10 +346,17 @@
     const ABSTRACT_CLAUSES = ["cooperation becomes absolutely essential", "every decision matters greatly", "patience is the key to success", "teamwork makes all the difference", "communication breaks down completely", "trust is more important than ever", "experience counts the most", "creativity plays a crucial role", "hard work alone is not enough", "technology takes over human judgment", "compromise becomes unavoidable", "everything seems to go wrong", "nothing is certain anymore", "safety must come first"];
 
     function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-    function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
     
     function genOptions(correct, include = []) {
-        const all = ["which", "that", "who", "where", "when", "why"];
+        const all = ["which", "that", "who", "where", "when", "why", "whose"];
         let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase());
         let selected = [];
         let priority = include.filter(o => o.toLowerCase() !== correct.toLowerCase() && others.includes(o));
@@ -556,215 +381,78 @@
                 question: `This is the ${place} ______ ${verbPhrase}.`,
                 options: genOptions("where", ["which", "that"]),
                 correct: "where",
-                explanation: `从句成分完整，${place} 是地点，所以用关系副词 <strong>where</strong> 作地点状语。`,
-                tip: "从句完整不缺成分 → 地点用 where",
-                type: "地点+完整从句→where"
+                explanation: `从句成分完整，${place} 是地点，用 <strong>where</strong>。`,
+                tip: "从句完整 + 地点词 → where",
+                type: "地点+完整→where"
             };
         },
         place_pronoun() {
             const place = pick(NOUNS_PLACE);
             const verb = pick(VERBS_TRANSITIVE);
             return {
-                question: `This is the ${place} ______ we ${verb} last year.`,
-                options: genOptions("that", ["where", "when"]),
+                question: `The ${place} ______ they ${verb} last week is now closed.`,
+                options: genOptions("that", ["where", "which"]),
                 correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语（${verb} 了什么地方？），所以用关系代词 <strong>that/which</strong>。`,
-                tip: "从句缺宾语 → 必须用代词 that/which（别被地点名词骗了！）",
-                type: "地点+缺宾语→that/which",
-                is_trap: true
-            };
-        },
-        place_subject() {
-            const place = pick(NOUNS_PLACE);
-            const pairs = [["stands", "at the top of the hill"], ["lies", "by the river"], ["attracts", "millions of tourists"]];
-            const [verb, obj] = pick(pairs);
-            return {
-                question: `The ${place} ______ ${verb} ${obj} was built in the 19th century.`,
-                options: genOptions("that", ["where", "when"]),
-                correct: "that",
-                explanation: `从句缺主语，所以用关系代词 <strong>that/which</strong>。`,
-                tip: "从句缺主语 → 必须用代词 that/which",
-                type: "地点+缺主语→that/which",
+                explanation: `从句中 <strong>${verb}</strong> 缺宾语，用 <strong>that/which</strong>。`,
+                tip: "从句缺宾语 → 必须用代词",
+                type: "地点+缺宾→that/which",
                 is_trap: true
             };
         },
         time_adverb() {
             const timeWord = pick(NOUNS_TIME);
-            const clause = pick(["the earthquake hit the city", "the war finally ended", "everything changed forever"]);
             return {
-                question: `I still remember the ${timeWord} ______ ${clause}.`,
+                question: `I still remember the ${timeWord} ______ we first met.`,
                 options: genOptions("when", ["which", "that"]),
                 correct: "when",
-                explanation: `从句成分完整，${timeWord} 是时间，所以用关系副词 <strong>when</strong>。`,
-                tip: "从句完整 + 先行词是时间 → when",
-                type: "时间+完整从句→when"
-            };
-        },
-        time_pronoun_object() {
-            const timeWord = pick(NOUNS_TIME);
-            const verb = pick(["spent", "enjoyed", "cherished"]);
-            return {
-                question: `I'll never forget the ${timeWord} ______ we ${verb} together.`,
-                options: genOptions("that", ["when", "where"]),
-                correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，所以用关系代词 <strong>that/which</strong>。`,
-                tip: "从句缺宾语 → 用代词（别看到时间名词就选 when！）",
-                type: "时间+缺宾语→that/which",
-                is_trap: true
-            };
-        },
-        time_pronoun_subject() {
-            const timeWord = pick(["year", "day", "moment"]);
-            const pairs = [["witnessed", "great changes"], ["saw", "a new beginning"]];
-            const [verb, obj] = pick(pairs);
-            return {
-                question: `The ${timeWord} ______ ${verb} ${obj} is still celebrated today.`,
-                options: genOptions("that", ["when", "where"]),
-                correct: "that",
-                explanation: `从句缺主语，所以用关系代词 <strong>that/which</strong>。`,
-                tip: "从句缺主语 → 用代词（哪怕先行词是时间！）",
-                type: "时间+缺主语→that/which",
-                is_trap: true
+                explanation: `从句完整，时间词作状语，用 <strong>when</strong>。`,
+                tip: "从句完整 + 时间词 → when",
+                type: "时间+完整→when"
             };
         },
         reason_adverb() {
             const clause = pick(REASONS_CLAUSES);
             return {
-                question: `Do you know the reason ______ ${clause}?`,
+                question: `Nobody explained the reason ______ ${clause}.`,
                 options: genOptions("why", ["that", "which"]),
                 correct: "why",
-                explanation: "从句成分完整，reason + 完整从句 → 用 <strong>why</strong>。",
-                tip: "reason + 完整从句 → why",
-                type: "reason+完整从句→why"
-            };
-        },
-        reason_pronoun() {
-            const verb = pick(["gave", "provided", "offered"]);
-            return {
-                question: `The reason ______ he ${verb} was not convincing.`,
-                options: genOptions("that", ["why", "when"]),
-                correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，所以用关系代词 <strong>that/which</strong>。`,
-                tip: "reason + 缺宾语从句 → that/which",
-                type: "reason+缺宾语→that/which",
-                is_compare: true
-            };
-        },
-        thing_pronoun() {
-            const thing = pick(NOUNS_THING);
-            const verb = pick(VERBS_TRANSITIVE);
-            return {
-                question: `This is the ${thing} ______ I ${verb} yesterday.`,
-                options: genOptions("that", ["where", "when"]),
-                correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，所以用关系代词 <strong>that/which</strong>。`,
-                tip: "普通名词 + 缺宾语 → that/which",
-                type: "普通名词+缺宾语→that/which"
-            };
-        },
-        thing_subject() {
-            const thing = pick(NOUNS_THING);
-            const pairs = [["changed", "the world"], ["influenced", "modern science"]];
-            const [verb, obj] = pick(pairs);
-            return {
-                question: `The ${thing} ______ ${verb} ${obj} was created by accident.`,
-                options: genOptions("that", ["where", "when"]),
-                correct: "that",
-                explanation: "从句缺主语，用关系代词 <strong>that/which</strong>。",
-                tip: "缺主语 → that/which",
-                type: "普通名词+缺主语→that/which"
-            };
-        },
-        non_restrictive() {
-            if (Math.random() < 0.5) {
-                const person = pick(NOUNS_PERSON);
-                return {
-                    question: `My grandfather, ______ was a famous ${person}, lived to be 95.`,
-                    options: genOptions("who", ["which", "that"]),
-                    correct: "who",
-                    explanation: "非限定性定语从句（有逗号），指人且缺主语，用 <strong>who</strong>。",
-                    tip: "非限定从（有逗号）指人 → who（不能用 that）",
-                    type: "非限定从指人→who"
-                };
-            } else {
-                const thing = pick(NOUNS_THING);
-                return {
-                    question: `The ${thing}, ______ was completed in 1920, is now a national treasure.`,
-                    options: genOptions("which", ["who", "that"]),
-                    correct: "which",
-                    explanation: "非限定性定语从句（有逗号），指物且缺主语，用 <strong>which</strong>。",
-                    tip: "非限定从（有逗号）指物 → which（不能用 that）",
-                    type: "非限定从指物→which"
-                };
-            }
-        },
-        whose() {
-            const person = pick(NOUNS_PERSON);
-            const thing = pick(["theory", "discovery", "masterpiece"]);
-            return {
-                question: `The ${person} ______ ${thing} changed the world won a Nobel Prize.`,
-                options: genOptions("whose", ["who", "that"]),
-                correct: "whose",
-                explanation: `从句中 ${thing} 缺定语（谁的 ${thing}？），所以用 <strong>whose</strong>。`,
-                tip: "表示'某人的/某物的' → whose",
-                type: "所属关系→whose"
+                explanation: "reason + 完整从句，用 <strong>why</strong>。",
+                tip: "reason + 完整 → why",
+                type: "reason+完整→why"
             };
         },
         abstract_where() {
             const abstract = pick(NOUNS_ABSTRACT);
             const clause = pick(ABSTRACT_CLAUSES);
             return {
-                question: `We have reached a ${abstract} ______ ${clause}.`,
+                question: `We've reached a ${abstract} ______ ${clause}.`,
                 options: genOptions("where", ["when", "that"]),
                 correct: "where",
-                explanation: `从句完整，<strong>${abstract}</strong> 是抽象地点名词，用 <strong>where</strong> 引导。`,
-                tip: `stage/point/situation 等 + 完整从句 → where`,
-                type: "抽象地点+完整从句→where"
-            };
-        },
-        person_pronoun() {
-            const person = pick(NOUNS_PERSON);
-            const verb = pick(["admired", "respected", "met"]);
-            return {
-                question: `The ${person} ______ they ${verb} at the conference gave a brilliant speech.`,
-                options: genOptions("who", ["which", "where"]),
-                correct: "who",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，指人，用 <strong>who/that</strong>。`,
-                tip: "指人 + 缺宾语 → who/that",
-                type: "指人+缺宾语→who/that"
+                explanation: `<strong>${abstract}</strong> 是抽象地点，从句完整用 <strong>where</strong>。`,
+                tip: `stage/point/case + 完整 → where`,
+                type: "抽象地点+完整→where"
             };
         }
     };
 
-    const SLOTS = [["place_adverb", 3], ["place_pronoun", 2], ["place_subject", 1], ["time_adverb", 2], ["time_pronoun_object", 1], ["time_pronoun_subject", 1], ["reason_adverb", 2], ["reason_pronoun", 2], ["thing_pronoun", 1], ["thing_subject", 1], ["non_restrictive", 1], ["whose", 1], ["abstract_where", 2], ["person_pronoun", 1]];
+    const SLOTS = [["place_adverb", 5], ["place_pronoun", 5], ["time_adverb", 3], ["reason_adverb", 3], ["abstract_where", 4]];
 
     function generateAllQuestions() {
-        const questions = [];
-        const seenQuestions = new Set();
-        for (const [slotType, count] of SLOTS) {
+        const qList = [];
+        for (const [type, count] of SLOTS) {
             for (let i = 0; i < count; i++) {
-                let q = null;
-                let attempts = 0;
-                while (attempts < 50) {
-                    q = GENERATORS[slotType]();
-                    if (!seenQuestions.has(q.question)) { seenQuestions.add(q.question); break; }
-                    attempts++;
-                }
-                if (q) questions.push(q);
+                if (GENERATORS[type]) qList.push(GENERATORS[type]());
             }
         }
-        return shuffle(questions).map((q, i) => ({ ...q, id: i + 1 }));
+        return shuffle(qList).map((q, i) => ({ ...q, id: i + 1 }));
     }
 
-    // ============================================================
-    // 主逻辑 (已修改)
-    // ============================================================
-    
-    let questions = generateAllQuestions();
+    let questions = [];
     let userAnswers = {};
     let score = 0;
     
     function initQuiz() {
+        questions = generateAllQuestions();
         const container = document.getElementById('questionsContainer');
         container.innerHTML = '';
         userAnswers = {};
@@ -776,21 +464,13 @@
             card.id = 'q-card-' + q.id;
             
             let questionHTML = q.question.replace('______', '<span class="blank">______</span>');
-            
             let badgeHTML = '';
-            // 保留“陷阱题”和“对比题”提示，因为它们能提示学生思考维度
-            if (q.is_trap) {
-                badgeHTML += '<span class="floating-badge badge-trap">⚠️ 陷阱题</span> ';
-            }
-            if (q.is_compare) {
-                badgeHTML += '<span class="floating-badge badge-compare">🔗 对比题</span> ';
-            }
-            
-            // 【修改处】删掉了显示 q.type 的代码，不再展示“非限定从指人→who”等具体线索
+            if (q.is_trap) badgeHTML += '<span class="floating-badge badge-trap">⚠️ 陷阱题</span> ';
+            badgeHTML += `<span class="floating-badge badge-type">${q.type}</span>`;
             
             card.innerHTML = `
                 <div class="question-header">
-                    <span class="question-number">第 ${q.id} 题</span>
+                    <span class="question-number">Q${q.id}</span>
                     ${badgeHTML}
                 </div>
                 <div class="question-text">${questionHTML}</div>
@@ -802,19 +482,20 @@
                 </div>
                 <div class="feedback" id="feedback-${q.id}"></div>
             `;
-            
             container.appendChild(card);
         });
         
         document.getElementById('summary').classList.remove('show');
         updateProgress();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     function selectAnswer(qId, userChoice) {
         if (userAnswers[qId]) return;
         const qData = questions.find(q => q.id === qId);
-        const isCorrect = (userChoice.toLowerCase() === qData.correct.toLowerCase());
+        const correctOption = qData.options.find(opt => opt.split('. ')[1].toLowerCase() === qData.correct.toLowerCase());
+        const correctLetter = correctOption ? correctOption.charAt(0) : '';
+        const isCorrect = (userChoice.toUpperCase() === correctLetter.toUpperCase());
+        
         userAnswers[qId] = { choice: userChoice, correct: isCorrect };
         if (isCorrect) score += 10;
         
@@ -823,58 +504,41 @@
         buttons.forEach(btn => {
             btn.classList.add('disabled');
             const letter = btn.getAttribute('data-letter');
-            if (letter.toLowerCase() === qData.correct.toLowerCase()) btn.classList.add('correct-show');
-            if (letter.toLowerCase() === userChoice.toLowerCase() && !isCorrect) btn.classList.add('wrong-show');
-            if (letter.toLowerCase() === userChoice.toLowerCase() && isCorrect) btn.classList.add('selected');
+            if (letter === correctLetter) btn.classList.add('correct-show');
+            if (letter === userChoice && !isCorrect) btn.classList.add('wrong-show');
+            if (letter === userChoice && isCorrect) btn.classList.add('selected');
         });
         
         const feedbackDiv = document.getElementById('feedback-' + qId);
-        feedbackDiv.classList.add('show');
-        if (isCorrect) {
-            feedbackDiv.classList.add('correct-fb');
-            feedbackDiv.innerHTML = `<strong>✅ 正确！</strong><br>${qData.explanation}<div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>`;
-        } else {
-            feedbackDiv.classList.add('wrong-fb');
-            feedbackDiv.innerHTML = `<strong>❌ 错误！</strong>正确答案是 <strong>${qData.correct}</strong><br>${qData.explanation}<div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>`;
-        }
+        feedbackDiv.classList.add('show', isCorrect ? 'correct-fb' : 'wrong-fb');
+        feedbackDiv.innerHTML = `<strong>${isCorrect ? '✅ 正确' : '❌ 错误，选 ' + qData.correct}</strong><br>${qData.explanation}<div class="tip-box">💡 ${qData.tip}</div>`;
         document.getElementById('q-card-' + qId).classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
+        
         updateProgress();
         checkCompletion();
     }
     
     function updateProgress() {
         const answered = Object.keys(userAnswers).length;
-        const percentage = Math.round((answered / questions.length) * 100);
         document.getElementById('scoreDisplay').textContent = score;
         document.getElementById('answeredCount').textContent = answered;
-        document.getElementById('progressBar').style.width = percentage + '%';
+        document.getElementById('progressBar').style.width = (answered / 20 * 100) + '%';
     }
     
     function checkCompletion() {
-        if (Object.keys(userAnswers).length === questions.length) {
+        if (Object.keys(userAnswers).length === 20) {
             const summary = document.getElementById('summary');
             summary.classList.add('show');
             document.getElementById('finalScore').textContent = score;
-            document.getElementById('correctCount').textContent = Math.round(score / 10);
-            let gradeText = score >= 180 ? '🏆 大牛！副词和代词彻底拿捏！' : (score >= 140 ? '👍 不错！重点复习你答错的题' : '📖 需要巩固，建议换一套新题再战');
-            document.getElementById('gradeText').textContent = gradeText;
+            document.getElementById('gradeText').textContent = score >= 160 ? '🏆 逻辑大师！' : '📖 继续加油！';
             summary.scrollIntoView({ behavior: 'smooth' });
         }
     }
     
-    function resetQuiz() {
-        userAnswers = {}; score = 0;
-        document.querySelectorAll('.question-card').forEach(card => card.classList.remove('answered-correct', 'answered-wrong'));
-        document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('disabled', 'selected', 'correct-show', 'wrong-show'));
-        document.querySelectorAll('.feedback').forEach(fb => fb.classList.remove('show', 'correct-fb', 'wrong-fb'));
-        document.getElementById('summary').classList.remove('show');
-        updateProgress();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    function resetQuiz() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function refreshNewSet() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     
-    function refreshNewSet() { questions = generateAllQuestions(); initQuiz(); }
-    
-    initQuiz();
+    window.onload = initQuiz;
     </script>
 </body>
 </html>
