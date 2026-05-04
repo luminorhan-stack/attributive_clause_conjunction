@@ -388,7 +388,7 @@
             "the government restored recently"
         ];
 
-        // 人物 + who → 从句缺主语（不及物动词直接跟）
+        // 人物 + who/that → 从句缺主语（不及物动词直接跟）
         const PERSON_WHO_CLAUSES = [
             "discovered penicillin",
             "painted the Mona Lisa",
@@ -483,9 +483,11 @@
             return a;
         }
 
-        function genOptions(correct, include = []) {
+        // 修改后的 genOptions：加入了 exclude 机制
+        function genOptions(correct, include = [], exclude = []) {
             const all = ["which", "that", "who", "where", "when", "why"];
-            let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase());
+            // 过滤掉正确答案和需要被排除的选项
+            let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase() && !exclude.includes(o.toLowerCase()));
             let selected = [];
             let priority = include.filter(o => o.toLowerCase() !== correct.toLowerCase() && others.includes(o));
             selected.push(...priority.slice(0, 3));
@@ -517,32 +519,45 @@
                 };
             },
 
-            // 2. 地点 + 缺宾语从句 → that/which（陷阱题）
+            // 2. 地点/物 + 缺宾语从句 → that/which（陷阱题）
             place_pronoun() {
                 const place = pick(NOUNS_PLACE);
                 const clause = pick(PLACE_THAT_CLAUSES);
+                
+                // 随机选择 that 或 which 作为本题唯一的正确答案
+                const correctAns = Math.random() > 0.5 ? "that" : "which";
+                // 算出需要排除的另一个词，避免它们同时出现在选项中
+                const excludeAns = correctAns === "that" ? "which" : "that";
+
                 return {
                     question: `This is the ${place} ______ ${clause}.`,
-                    options: genOptions("that", ["where", "which"]),
-                    correct: "that",
-                    explanation: `从句中"${clause}"缺宾语，用 <strong>that/which</strong>。`,
-                    tip: "从句缺宾语 → 必须用代词",
-                    type: "地点+缺宾→that/which",
+                    // 将干扰项 where 加入优先列表，并将另一个正确选项放入排除列表
+                    options: genOptions(correctAns, ["where"], [excludeAns]),
+                    correct: correctAns,
+                    explanation: `从句中"${clause}"缺主/宾语，先行词是物，用 <strong>that/which</strong>。`,
+                    tip: "从句缺主/宾语 + 指物 → that/which",
+                    type: "物+缺主/宾→that/which",
                     is_trap: true
                 };
             },
 
-            // 3. 人物 + 缺主语从句 → who
+            // 3. 人物 + 缺主/宾语从句 → who/that（陷阱题，已更新修改）
             person_pronoun() {
                 const person = pick(NOUNS_PERSON);
                 const clause = pick(PERSON_WHO_CLAUSES);
+                
+                // 随机选择 who 或 that 作为本题唯一的正确答案
+                const correctAns = Math.random() > 0.5 ? "who" : "that";
+                // 算出需要排除的另一个词，避免它们同时出现
+                const excludeAns = correctAns === "who" ? "that" : "who";
+
                 return {
                     question: `This is the ${person} ______ ${clause}.`,
-                    options: genOptions("who", ["which", "where"]),
-                    correct: "who",
-                    explanation: `从句缺主语，先行词是人，用 <strong>who</strong>。`,
-                    tip: "从句缺主语 + 指人 → who",
-                    type: "人物+缺主→who",
+                    options: genOptions(correctAns, ["which", "where"], [excludeAns]),
+                    correct: correctAns,
+                    explanation: `从句缺主/宾语，先行词是人，用 <strong>who/that</strong>。`,
+                    tip: "从句缺主/宾语 + 指人 → who/that",
+                    type: "人物+缺主/宾→who/that",
                     is_trap: true
                 };
             },
