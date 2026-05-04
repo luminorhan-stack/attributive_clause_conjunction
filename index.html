@@ -17,18 +17,17 @@
             --border: #e2e8f0;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            padding: 0 0 80px; /* 为底部留出更多空间 */
+            padding: 0 0 80px;
         }
-        
-        /* ---------- 顶部品牌导航 ---------- */
+
         .brand-bar {
             background: #fff;
             border-bottom: 1px solid var(--border);
@@ -39,7 +38,7 @@
             flex-wrap: wrap;
             gap: 8px;
         }
-        
+
         .brand-logo {
             display: flex;
             align-items: center;
@@ -47,7 +46,7 @@
             text-decoration: none;
             color: var(--text);
         }
-        
+
         .brand-icon {
             width: 38px;
             height: 38px;
@@ -60,13 +59,12 @@
             font-weight: 800;
             font-size: 1.1rem;
         }
-        
+
         .brand-text { font-weight: 700; font-size: 1.2rem; }
         .brand-text .en { color: #1e293b; }
         .brand-text .cn { color: #64748b; font-size: 0.85rem; font-weight: 500; margin-left: 6px; }
         .brand-tagline { font-size: 0.8rem; color: var(--muted); font-style: italic; }
-        
-        /* ---------- 联系方式栏目 (新加) ---------- */
+
         .contact-float {
             position: fixed;
             bottom: 24px;
@@ -79,7 +77,7 @@
         }
 
         .contact-btn {
-            background: #07c160; /* 微信绿 */
+            background: #07c160;
             color: white;
             padding: 12px 20px;
             border-radius: 30px;
@@ -103,9 +101,9 @@
             background: white;
             padding: 20px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border: 1px solid var(--border);
-            display: none; /* 默认隐藏 */
+            display: none;
             animation: slideIn 0.3s ease-out;
             width: 220px;
             text-align: center;
@@ -144,9 +142,8 @@
             color: var(--muted);
         }
 
-        /* ---------- 主容器 ---------- */
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
+
         .header { text-align: center; padding: 20px 20px 10px; }
         .header h1 { font-size: 2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
         .header .subtitle { color: var(--muted); font-size: 0.95rem; }
@@ -160,7 +157,7 @@
             font-weight: 700;
             margin-top: 8px;
         }
-        
+
         .score-bar {
             background: var(--card);
             border-radius: 16px;
@@ -177,16 +174,16 @@
             z-index: 10;
             border: 1px solid var(--border);
         }
-        
+
         .score-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
         .progress-bar-wrap { flex: 1; min-width: 100px; margin: 0 20px; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 4px; transition: width 0.4s ease; }
-        
+
         .btn { padding: 8px 18px; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
         .btn-outline { background: #fff; color: var(--text); border: 2px solid var(--border); }
         .btn-outline:hover { background: #f8fafc; border-color: #cbd5e1; }
         .btn-brand { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; }
-        
+
         .question-card {
             background: var(--card);
             border-radius: 16px;
@@ -198,12 +195,12 @@
         }
         .question-card.answered-correct { border-color: var(--correct); background: #f0fdf4; }
         .question-card.answered-wrong { border-color: var(--wrong); background: #fef2f2; }
-        
+
         .question-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
         .question-number { background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; }
         .question-text { font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 16px; padding: 4px 0; }
         .question-text .blank { display: inline-block; width: 70px; border-bottom: 2px dashed var(--accent); text-align: center; margin: 0 4px; color: var(--accent); font-weight: 700; }
-        
+
         .options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
         .option-btn {
             padding: 10px 20px;
@@ -220,28 +217,28 @@
         .option-btn.correct-show { border-color: var(--correct); background: #d1fae5; color: #065f46; }
         .option-btn.wrong-show { border-color: var(--wrong); background: #fee2e2; color: #991b1b; }
         .option-btn.disabled { pointer-events: none; opacity: 0.7; }
-        
+
         .feedback { margin-top: 12px; padding: 14px 16px; border-radius: 10px; display: none; font-size: 0.9rem; line-height: 1.7; }
         .feedback.show { display: block; }
         .feedback.correct-fb { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
         .feedback.wrong-fb { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-        .feedback .tip-box { margin-top: 8px; padding: 8px 12px; background: rgba(0,0,0,0.05); border-radius: 6px; border-left: 3px solid currentColor; }
-        
+        .feedback .tip-box { margin-top: 8px; padding: 8px 12px; background: rgba(0, 0, 0, 0.05); border-radius: 6px; border-left: 3px solid currentColor; }
+
         .floating-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 700; }
         .badge-trap { background: #fef3c7; color: #92400e; }
         .badge-type { background: #f1f5f9; color: #64748b; font-size: 0.7rem; font-weight: 500; }
-        
+
         .summary { display: none; text-align: center; padding: 40px 20px; background: var(--card); border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
         .summary.show { display: block; }
         .summary .final-score { font-size: 4rem; font-weight: 800; color: var(--accent); }
-        
+
         .cheatsheet { background: var(--card); border-radius: 16px; padding: 24px 28px; margin-top: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
         .cheatsheet h3 { font-size: 1.1rem; margin-bottom: 12px; }
         .cheatsheet .rhyme { background: linear-gradient(135deg, #fef3c7, #fef9e7); border-radius: 10px; padding: 16px 20px; font-size: 0.95rem; line-height: 2; }
         .cheatsheet .rhyme .hl { color: #ef4444; font-weight: 700; }
-        
+
         .footer-brand { text-align: center; padding: 32px 20px 16px; color: var(--muted); font-size: 0.85rem; }
-        
+
         @media (max-width: 600px) {
             .options { flex-direction: column; }
             .score-bar { flex-direction: column; align-items: stretch; text-align: center; }
@@ -279,7 +276,7 @@
             <p class="subtitle">when / where / why &nbsp;vs&nbsp; which / that / who</p>
             <span class="badge-random">🎲 随机出题 · 每次刷新题目不同</span>
         </div>
-        
+
         <div class="score-bar">
             <div>
                 <span class="score-number" id="scoreDisplay">0</span>
@@ -296,9 +293,9 @@
                 <button class="btn btn-brand" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: white;" onclick="refreshNewSet()">🎲 换一套</button>
             </div>
         </div>
-        
+
         <div id="questionsContainer"></div>
-        
+
         <div class="summary" id="summary">
             <h2>🎉 测试完成！</h2>
             <div class="final-score" id="finalScore">0</div>
@@ -325,220 +322,385 @@
     <div class="footer-brand">
         <span>由 Lumi's 卢米 倾心打造 · 助你搞定定语从句 ✨</span>
     </div>
-    
+
     <script>
-    // 联系方式切换逻辑
-    function toggleContact() {
-        const card = document.getElementById('contactCard');
-        card.classList.toggle('active');
-    }
-
-    // 核心题库逻辑
-    const NOUNS_PLACE = ["museum", "library", "hospital", "restaurant", "hotel", "park", "school", "university", "laboratory", "theater", "stadium", "airport", "station", "gallery", "café", "market", "church", "factory", "village", "building", "apartment", "office", "studio", "garden", "square", "temple"];
-    const NOUNS_TIME = ["day", "moment", "year", "month", "week", "morning", "afternoon", "evening", "night", "summer", "winter", "spring", "autumn", "decade", "century", "period", "era", "age", "occasion", "festival", "holiday", "weekend"];
-    const NOUNS_THING = ["book", "painting", "film", "song", "machine", "device", "car", "bridge", "sculpture", "article", "letter", "photograph", "document", "report", "theory", "discovery", "invention", "recipe", "tool", "instrument"];
-    const NOUNS_PERSON = ["scientist", "artist", "teacher", "doctor", "writer", "musician", "engineer", "architect", "professor", "journalist", "athlete", "leader", "inventor", "explorer", "philosopher", "poet", "director", "chef", "designer"];
-    const NOUNS_ABSTRACT = ["stage", "point", "situation", "condition", "case", "position", "circumstance", "scene", "environment", "setting", "scenario"];
-    const VERBS_TRANSITIVE = ["visited", "bought", "read", "watched", "designed", "discovered", "invented", "wrote", "recorded", "mentioned", "recommended", "described", "photographed", "built", "painted", "composed", "directed", "created", "developed", "published", "borrowed", "selected", "chose", "picked", "noticed", "admired", "discussed", "analyzed", "studied", "examined", "tested", "repaired", "fixed", "cleaned", "prepared", "organized", "arranged"];
-    const VERBS_INTRANSITIVE_CONTEXT = ["was born", "grew up", "lived", "worked", "studied", "stayed", "died", "got married", "spent his childhood", "settled down", "took refuge", "started his career", "received education", "found peace", "made history"];
-    const VERBS_INTRANSITIVE_PLACE = ["happened", "occurred", "took place", "broke out", "was held", "was built", "was established", "was discovered", "was signed", "was invented", "was founded", "was organized", "was filmed", "was recorded"];
-    const REASONS_CLAUSES = ["he was late for the meeting", "she quit her job", "they moved to another city", "the project failed", "he refused the offer", "she changed her mind", "the event was cancelled", "he didn't attend the ceremony", "the company went bankrupt", "they postponed the wedding", "she decided to study abroad", "he broke up with his girlfriend", "the team lost the championship", "she rejected the scholarship", "the deal fell through", "they sold the house"];
-    const ABSTRACT_CLAUSES = ["cooperation becomes absolutely essential", "every decision matters greatly", "patience is the key to success", "teamwork makes all the difference", "communication breaks down completely", "trust is more important than ever", "experience counts the most", "creativity plays a crucial role", "hard work alone is not enough", "technology takes over human judgment", "compromise becomes unavoidable", "everything seems to go wrong", "nothing is certain anymore", "safety must come first"];
-
-    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-    function shuffle(arr) {
-        const a = [...arr];
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
+        // 联系方式切换逻辑
+        function toggleContact() {
+            const card = document.getElementById('contactCard');
+            card.classList.toggle('active');
         }
-        return a;
-    }
-    
-    function genOptions(correct, include = []) {
-        const all = ["which", "that", "who", "where", "when", "why", "whose"];
-        let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase());
-        let selected = [];
-        let priority = include.filter(o => o.toLowerCase() !== correct.toLowerCase() && others.includes(o));
-        selected.push(...priority.slice(0, 3));
-        let remaining = others.filter(o => !selected.includes(o));
-        while (selected.length < 3 && remaining.length > 0) {
-            const idx = Math.floor(Math.random() * remaining.length);
-            selected.push(remaining[idx]);
-            remaining.splice(idx, 1);
+
+        // =============== 基础名词库 ===============
+        const NOUNS_PLACE = ["museum", "library", "hospital", "restaurant", "hotel", "park", "school", "university", "laboratory", "theater", "stadium", "airport", "station", "gallery", "café", "market", "church", "factory", "village", "building", "apartment", "office", "studio", "garden", "square", "temple"];
+        const NOUNS_TIME = ["day", "moment", "year", "month", "week", "morning", "afternoon", "evening", "night", "summer", "winter", "spring", "autumn", "decade", "century", "period", "era", "age", "occasion", "festival", "holiday", "weekend"];
+        const NOUNS_PERSON = ["scientist", "artist", "teacher", "doctor", "writer", "musician", "engineer", "architect", "professor", "journalist", "athlete", "leader", "inventor", "explorer", "philosopher", "poet", "director", "chef", "designer"];
+        const NOUNS_ABSTRACT = ["stage", "point", "situation", "condition", "case", "position", "circumstance", "scene", "environment", "setting", "scenario"];
+
+        // =============== 核心：完整从句库（保证所有题干语法正确） ===============
+
+        // 地点 + where → 从句必须是完整的主谓宾/主谓结构
+        const PLACE_WHERE_CLAUSES = [
+            "the Declaration of Independence was signed",
+            "the first Olympic Games were held",
+            "the peace treaty was signed",
+            "the famous battle took place",
+            "the accident happened",
+            "the ancient temple was discovered",
+            "the important meeting was held",
+            "the revolution broke out",
+            "the great fire started",
+            "the first computer was invented",
+            "the light bulb was first demonstrated",
+            "the telescope was first used",
+            "she spent her childhood",
+            "he wrote most of his novels",
+            "they got married",
+            "the artist created his masterpieces",
+            "the scientist conducted her experiments",
+            "the band recorded their first album",
+            "the agreement was finally reached",
+            "the historic speech was delivered",
+            "the treasure was hidden for centuries",
+            "the ceasefire was announced"
+        ];
+
+        // 地点 + which/that → 从句必须缺宾语（及物动词后面没有宾语）
+        const PLACE_THAT_CLAUSES = [
+            "they visited last summer",
+            "she recommended highly",
+            "he designed in 2010",
+            "they built in just six months",
+            "the artist painted with great care",
+            "the writer described in her memoir",
+            "they photographed for the magazine",
+            "the tourists admired greatly",
+            "he mentioned in his diary",
+            "they explored during the expedition",
+            "she discovered accidentally",
+            "the guide showed us",
+            "they renovated last year",
+            "he reviewed in his blog",
+            "the critic praised highly",
+            "they demolished after the war",
+            "she inherited from her grandfather",
+            "the storm destroyed completely",
+            "historians studied for decades",
+            "the government restored recently"
+        ];
+
+        // 人物 + who → 从句缺主语（不及物动词直接跟）
+        const PERSON_WHO_CLAUSES = [
+            "discovered penicillin",
+            "painted the Mona Lisa",
+            "wrote Romeo and Juliet",
+            "invented the telephone",
+            "first walked on the moon",
+            "composed the Ninth Symphony",
+            "designed the Eiffel Tower",
+            "founded the company",
+            "won the Nobel Prize",
+            "broke the world record",
+            "led the expedition",
+            "solved the puzzle",
+            "taught at the university",
+            "performed at the concert",
+            "directed the award-winning film",
+            "developed the new theory",
+            "created the masterpiece",
+            "explored the unknown territory"
+        ];
+
+        // 时间 + when → 从句完整
+        const TIME_WHEN_CLAUSES = [
+            "we first met",
+            "the war finally ended",
+            "the Civil Rights Act was passed",
+            "he graduated from college",
+            "she made her historic speech",
+            "the Berlin Wall fell",
+            "man first landed on the moon",
+            "the internet was born",
+            "the French Revolution began",
+            "she received the Nobel Prize",
+            "the company was founded",
+            "the treaty came into effect",
+            "the famous battle was fought",
+            "the constitution was adopted",
+            "the discovery changed the world",
+            "the festival was first celebrated"
+        ];
+
+        // reason + why → 从句完整
+        const REASON_WHY_CLAUSES = [
+            "he was late for the meeting",
+            "she quit her job suddenly",
+            "they decided to move abroad",
+            "the project failed completely",
+            "he refused the generous offer",
+            "she changed her mind at the last minute",
+            "the concert was cancelled",
+            "he didn't attend the ceremony",
+            "the company went bankrupt",
+            "they postponed the wedding",
+            "she decided to study abroad",
+            "he broke up with his girlfriend",
+            "the team lost the championship",
+            "she rejected the scholarship",
+            "the deal fell through",
+            "they sold the house",
+            "the flight was delayed",
+            "the experiment went wrong"
+        ];
+
+        // 抽象地点 + where → 从句完整
+        const ABSTRACT_WHERE_CLAUSES = [
+            "cooperation becomes absolutely essential",
+            "every decision matters greatly",
+            "patience is the key to success",
+            "teamwork makes all the difference",
+            "communication breaks down completely",
+            "trust is more important than ever",
+            "experience counts the most",
+            "creativity plays a crucial role",
+            "hard work alone is not enough",
+            "technology takes over human judgment",
+            "compromise becomes unavoidable",
+            "everything seems to go wrong",
+            "nothing is certain anymore",
+            "safety must come first",
+            "logic alone cannot solve the problem",
+            "emotions override rational thinking"
+        ];
+
+        // =============== 工具函数 ===============
+        function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
         }
-        selected.push(correct);
-        selected = shuffle(selected);
-        const letters = ["A", "B", "C", "D"];
-        return selected.map((opt, i) => `${letters[i]}. ${opt}`);
-    }
 
-    const GENERATORS = {
-        place_adverb() {
-            const place = pick(NOUNS_PLACE);
-            const verbPhrase = pick([...VERBS_INTRANSITIVE_PLACE, ...VERBS_INTRANSITIVE_CONTEXT]);
-            return {
-                question: `This is the ${place} ______ ${verbPhrase}.`,
-                options: genOptions("where", ["which", "that"]),
-                correct: "where",
-                explanation: `从句成分完整，${place} 是地点，用 <strong>where</strong>。`,
-                tip: "从句完整 + 地点词 → where",
-                type: "地点+完整→where"
-            };
-        },
-        place_pronoun() {
-            const place = pick(NOUNS_PLACE);
-            const verb = pick(VERBS_TRANSITIVE);
-            return {
-                question: `The ${place} ______ they ${verb} last week is now closed.`,
-                options: genOptions("that", ["where", "which"]),
-                correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，用 <strong>that/which</strong>。`,
-                tip: "从句缺宾语 → 必须用代词",
-                type: "地点+缺宾→that/which",
-                is_trap: true
-            };
-        },
-        time_adverb() {
-            const timeWord = pick(NOUNS_TIME);
-            return {
-                question: `I still remember the ${timeWord} ______ we first met.`,
-                options: genOptions("when", ["which", "that"]),
-                correct: "when",
-                explanation: `从句完整，时间词作状语，用 <strong>when</strong>。`,
-                tip: "从句完整 + 时间词 → when",
-                type: "时间+完整→when"
-            };
-        },
-        reason_adverb() {
-            const clause = pick(REASONS_CLAUSES);
-            return {
-                question: `Nobody explained the reason ______ ${clause}.`,
-                options: genOptions("why", ["that", "which"]),
-                correct: "why",
-                explanation: "reason + 完整从句，用 <strong>why</strong>。",
-                tip: "reason + 完整 → why",
-                type: "reason+完整→why"
-            };
-        },
-        abstract_where() {
-            const abstract = pick(NOUNS_ABSTRACT);
-            const clause = pick(ABSTRACT_CLAUSES);
-            return {
-                question: `We've reached a ${abstract} ______ ${clause}.`,
-                options: genOptions("where", ["when", "that"]),
-                correct: "where",
-                explanation: `<strong>${abstract}</strong> 是抽象地点，从句完整用 <strong>where</strong>。`,
-                tip: `stage/point/case + 完整 → where`,
-                type: "抽象地点+完整→where"
-            };
+        function genOptions(correct, include = []) {
+            const all = ["which", "that", "who", "where", "when", "why"];
+            let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase());
+            let selected = [];
+            let priority = include.filter(o => o.toLowerCase() !== correct.toLowerCase() && others.includes(o));
+            selected.push(...priority.slice(0, 3));
+            let remaining = others.filter(o => !selected.includes(o));
+            while (selected.length < 3 && remaining.length > 0) {
+                const idx = Math.floor(Math.random() * remaining.length);
+                selected.push(remaining[idx]);
+                remaining.splice(idx, 1);
+            }
+            selected.push(correct);
+            selected = shuffle(selected);
+            const letters = ["A", "B", "C", "D"];
+            return selected.map((opt, i) => `${letters[i]}. ${opt}`);
         }
-    };
 
-    const SLOTS = [["place_adverb", 5], ["place_pronoun", 5], ["time_adverb", 3], ["reason_adverb", 3], ["abstract_where", 4]];
+        // =============== 题目生成器 ===============
+        const GENERATORS = {
+            // 1. 地点 + 完整从句 → where
+            place_adverb() {
+                const place = pick(NOUNS_PLACE);
+                const clause = pick(PLACE_WHERE_CLAUSES);
+                return {
+                    question: `This is the ${place} ______ ${clause}.`,
+                    options: genOptions("where", ["which", "that"]),
+                    correct: "where",
+                    explanation: `从句"${clause}"成分完整，${place} 是地点，用 <strong>where</strong>。`,
+                    tip: "从句完整 + 地点词 → where",
+                    type: "地点+完整→where"
+                };
+            },
 
-    function generateAllQuestions() {
-        const qList = [];
-        for (const [type, count] of SLOTS) {
-            for (let i = 0; i < count; i++) {
-                if (GENERATORS[type]) qList.push(GENERATORS[type]());
+            // 2. 地点 + 缺宾语从句 → that/which（陷阱题）
+            place_pronoun() {
+                const place = pick(NOUNS_PLACE);
+                const clause = pick(PLACE_THAT_CLAUSES);
+                return {
+                    question: `This is the ${place} ______ ${clause}.`,
+                    options: genOptions("that", ["where", "which"]),
+                    correct: "that",
+                    explanation: `从句中"${clause}"缺宾语，用 <strong>that/which</strong>。`,
+                    tip: "从句缺宾语 → 必须用代词",
+                    type: "地点+缺宾→that/which",
+                    is_trap: true
+                };
+            },
+
+            // 3. 人物 + 缺主语从句 → who
+            person_pronoun() {
+                const person = pick(NOUNS_PERSON);
+                const clause = pick(PERSON_WHO_CLAUSES);
+                return {
+                    question: `This is the ${person} ______ ${clause}.`,
+                    options: genOptions("who", ["which", "where"]),
+                    correct: "who",
+                    explanation: `从句缺主语，先行词是人，用 <strong>who</strong>。`,
+                    tip: "从句缺主语 + 指人 → who",
+                    type: "人物+缺主→who",
+                    is_trap: true
+                };
+            },
+
+            // 4. 时间 + 完整从句 → when
+            time_adverb() {
+                const timeWord = pick(NOUNS_TIME);
+                const clause = pick(TIME_WHEN_CLAUSES);
+                return {
+                    question: `I still remember the ${timeWord} ______ ${clause}.`,
+                    options: genOptions("when", ["which", "that"]),
+                    correct: "when",
+                    explanation: `从句"${clause}"完整，时间词作状语，用 <strong>when</strong>。`,
+                    tip: "从句完整 + 时间词 → when",
+                    type: "时间+完整→when"
+                };
+            },
+
+            // 5. reason + 完整从句 → why
+            reason_adverb() {
+                const clause = pick(REASON_WHY_CLAUSES);
+                return {
+                    question: `Nobody explained the reason ______ ${clause}.`,
+                    options: genOptions("why", ["that", "which"]),
+                    correct: "why",
+                    explanation: "reason + 完整从句，用 <strong>why</strong>。",
+                    tip: "reason + 完整 → why",
+                    type: "reason+完整→why"
+                };
+            },
+
+            // 6. 抽象地点 + 完整从句 → where
+            abstract_where() {
+                const abstract = pick(NOUNS_ABSTRACT);
+                const clause = pick(ABSTRACT_WHERE_CLAUSES);
+                return {
+                    question: `We've reached a ${abstract} ______ ${clause}.`,
+                    options: genOptions("where", ["when", "that"]),
+                    correct: "where",
+                    explanation: `<strong>${abstract}</strong> 是抽象地点，从句完整用 <strong>where</strong>。`,
+                    tip: `stage/point/case + 完整 → where`,
+                    type: "抽象地点+完整→where"
+                };
+            }
+        };
+
+        // 题型分布：20题
+        const SLOTS = [
+            ["place_adverb", 4],
+            ["place_pronoun", 4],
+            ["person_pronoun", 3],
+            ["time_adverb", 3],
+            ["reason_adverb", 3],
+            ["abstract_where", 3]
+        ];
+
+        function generateAllQuestions() {
+            const qList = [];
+            for (const [type, count] of SLOTS) {
+                for (let i = 0; i < count; i++) {
+                    if (GENERATORS[type]) qList.push(GENERATORS[type]());
+                }
+            }
+            return shuffle(qList).map((q, i) => ({ ...q, id: i + 1 }));
+        }
+
+        // =============== 状态管理 ===============
+        let questions = [];
+        let userAnswers = {};
+        let score = 0;
+
+        function initQuiz() {
+            questions = generateAllQuestions();
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            userAnswers = {};
+            score = 0;
+
+            questions.forEach((q) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = 'q-card-' + q.id;
+
+                let questionHTML = q.question.replace('______', '<span class="blank">______</span>');
+                let badgeHTML = '';
+                if (q.is_trap) badgeHTML += '<span class="floating-badge badge-trap">⚠️ 陷阱题</span> ';
+
+                card.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">Q${q.id}</span>
+                        ${badgeHTML}
+                    </div>
+                    <div class="question-text">${questionHTML}</div>
+                    <div class="options" id="options-${q.id}">
+                        ${q.options.map(opt => {
+                            const letter = opt.charAt(0);
+                            return `<button class="option-btn" onclick="selectAnswer(${q.id}, '${letter}')" data-letter="${letter}">${opt}</button>`;
+                        }).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${q.id}"></div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('summary').classList.remove('show');
+            updateProgress();
+        }
+
+        function selectAnswer(qId, userChoice) {
+            if (userAnswers[qId]) return;
+            const qData = questions.find(q => q.id === qId);
+            const correctOption = qData.options.find(opt => opt.split('. ')[1].toLowerCase() === qData.correct.toLowerCase());
+            const correctLetter = correctOption ? correctOption.charAt(0) : '';
+            const isCorrect = (userChoice.toUpperCase() === correctLetter.toUpperCase());
+
+            userAnswers[qId] = { choice: userChoice, correct: isCorrect };
+            if (isCorrect) score += 10;
+
+            const optionsDiv = document.getElementById('options-' + qId);
+            const buttons = optionsDiv.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.classList.add('disabled');
+                const letter = btn.getAttribute('data-letter');
+                if (letter === correctLetter) btn.classList.add('correct-show');
+                if (letter === userChoice && !isCorrect) btn.classList.add('wrong-show');
+                if (letter === userChoice && isCorrect) btn.classList.add('selected');
+            });
+
+            const feedbackDiv = document.getElementById('feedback-' + qId);
+            feedbackDiv.classList.add('show', isCorrect ? 'correct-fb' : 'wrong-fb');
+            feedbackDiv.innerHTML = `<strong>${isCorrect ? '✅ 正确' : '❌ 错误，正确答案是 ' + qData.correct}</strong><br>${qData.explanation}<div class="tip-box">💡 ${qData.tip}</div>`;
+            document.getElementById('q-card-' + qId).classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
+
+            updateProgress();
+            checkCompletion();
+        }
+
+        function updateProgress() {
+            const answered = Object.keys(userAnswers).length;
+            document.getElementById('scoreDisplay').textContent = score;
+            document.getElementById('answeredCount').textContent = answered;
+            document.getElementById('progressBar').style.width = (answered / 20 * 100) + '%';
+        }
+
+        function checkCompletion() {
+            if (Object.keys(userAnswers).length === 20) {
+                const summary = document.getElementById('summary');
+                summary.classList.add('show');
+                document.getElementById('finalScore').textContent = score;
+                document.getElementById('gradeText').textContent = score >= 160 ? '🏆 逻辑大师！' : '📖 继续加油！';
+                summary.scrollIntoView({ behavior: 'smooth' });
             }
         }
-        return shuffle(qList).map((q, i) => ({ ...q, id: i + 1 }));
-    }
 
-    let questions = [];
-    let userAnswers = {};
-    let score = 0;
-    
-    function initQuiz() {
-        questions = generateAllQuestions();
-        const container = document.getElementById('questionsContainer');
-        container.innerHTML = '';
-        userAnswers = {};
-        score = 0;
-        
-        questions.forEach((q) => {
-            const card = document.createElement('div');
-            card.className = 'question-card';
-            card.id = 'q-card-' + q.id;
-            
-            let questionHTML = q.question.replace('______', '<span class="blank">______</span>');
-            let badgeHTML = '';
-            if (q.is_trap) badgeHTML += '<span class="floating-badge badge-trap">⚠️ 陷阱题</span> ';
-            badgeHTML += `<span class="floating-badge badge-type">${q.type}</span>`;
-            
-            card.innerHTML = `
-                <div class="question-header">
-                    <span class="question-number">Q${q.id}</span>
-                    ${badgeHTML}
-                </div>
-                <div class="question-text">${questionHTML}</div>
-                <div class="options" id="options-${q.id}">
-                    ${q.options.map(opt => {
-                        const letter = opt.charAt(0);
-                        return `<button class="option-btn" onclick="selectAnswer(${q.id}, '${letter}')" data-letter="${letter}">${opt}</button>`;
-                    }).join('')}
-                </div>
-                <div class="feedback" id="feedback-${q.id}"></div>
-            `;
-            container.appendChild(card);
-        });
-        
-        document.getElementById('summary').classList.remove('show');
-        updateProgress();
-    }
-    
-    function selectAnswer(qId, userChoice) {
-        if (userAnswers[qId]) return;
-        const qData = questions.find(q => q.id === qId);
-        const correctOption = qData.options.find(opt => opt.split('. ')[1].toLowerCase() === qData.correct.toLowerCase());
-        const correctLetter = correctOption ? correctOption.charAt(0) : '';
-        const isCorrect = (userChoice.toUpperCase() === correctLetter.toUpperCase());
-        
-        userAnswers[qId] = { choice: userChoice, correct: isCorrect };
-        if (isCorrect) score += 10;
-        
-        const optionsDiv = document.getElementById('options-' + qId);
-        const buttons = optionsDiv.querySelectorAll('.option-btn');
-        buttons.forEach(btn => {
-            btn.classList.add('disabled');
-            const letter = btn.getAttribute('data-letter');
-            if (letter === correctLetter) btn.classList.add('correct-show');
-            if (letter === userChoice && !isCorrect) btn.classList.add('wrong-show');
-            if (letter === userChoice && isCorrect) btn.classList.add('selected');
-        });
-        
-        const feedbackDiv = document.getElementById('feedback-' + qId);
-        feedbackDiv.classList.add('show', isCorrect ? 'correct-fb' : 'wrong-fb');
-        feedbackDiv.innerHTML = `<strong>${isCorrect ? '✅ 正确' : '❌ 错误，选 ' + qData.correct}</strong><br>${qData.explanation}<div class="tip-box">💡 ${qData.tip}</div>`;
-        document.getElementById('q-card-' + qId).classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
-        
-        updateProgress();
-        checkCompletion();
-    }
-    
-    function updateProgress() {
-        const answered = Object.keys(userAnswers).length;
-        document.getElementById('scoreDisplay').textContent = score;
-        document.getElementById('answeredCount').textContent = answered;
-        document.getElementById('progressBar').style.width = (answered / 20 * 100) + '%';
-    }
-    
-    function checkCompletion() {
-        if (Object.keys(userAnswers).length === 20) {
-            const summary = document.getElementById('summary');
-            summary.classList.add('show');
-            document.getElementById('finalScore').textContent = score;
-            document.getElementById('gradeText').textContent = score >= 160 ? '🏆 逻辑大师！' : '📖 继续加油！';
-            summary.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    
-    function resetQuiz() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    function refreshNewSet() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    
-    window.onload = initQuiz;
+        function resetQuiz() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function refreshNewSet() { initQuiz(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        window.onload = initQuiz;
     </script>
 </body>
 </html>
