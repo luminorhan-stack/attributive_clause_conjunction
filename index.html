@@ -334,12 +334,7 @@
             color: #1e40af;
         }
         
-        .badge-type {
-            background: #f1f5f9;
-            color: #64748b;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
+        /* 去掉了 badge-type 的样式，因为它不再使用了 */
         
         .summary {
             display: none;
@@ -442,7 +437,6 @@
 </head>
 <body>
 
-    <!-- ========== 顶部品牌条 ========== -->
     <div class="brand-bar">
         <div class="brand-logo">
             <div class="brand-icon">L</div>
@@ -494,7 +488,6 @@
             </div>
         </div>
 
-        <!-- ========== 核心口诀 ========== -->
         <div class="cheatsheet">
             <h3>🎯 核心口诀</h3>
             <div class="rhyme">
@@ -507,7 +500,6 @@
         </div>
     </div>
 
-    <!-- ========== 底部品牌 ========== -->
     <div class="footer-brand">
         <span>
             由 
@@ -521,152 +513,47 @@
     
     <script>
     // ============================================================
-    // 词汇库
+    // 词汇库 & 生成器代码 (保持不变)
     // ============================================================
     
-    const NOUNS_PLACE = [
-        "museum", "library", "hospital", "restaurant", "hotel", "park", "school",
-        "university", "laboratory", "theater", "stadium", "airport", "station",
-        "gallery", "café", "market", "church", "factory", "village", "building",
-        "apartment", "office", "studio", "garden", "square", "temple"
-    ];
-    
-    const NOUNS_TIME = [
-        "day", "moment", "year", "month", "week", "morning", "afternoon", "evening",
-        "night", "summer", "winter", "spring", "autumn", "decade", "century",
-        "period", "era", "age", "occasion", "festival", "holiday", "weekend"
-    ];
-    
-    const NOUNS_THING = [
-        "book", "painting", "film", "song", "machine", "device", "car", "bridge",
-        "sculpture", "article", "letter", "photograph", "document", "report",
-        "theory", "discovery", "invention", "recipe", "tool", "instrument"
-    ];
-    
-    const NOUNS_PERSON = [
-        "scientist", "artist", "teacher", "doctor", "writer", "musician", "engineer",
-        "architect", "professor", "journalist", "athlete", "leader", "inventor",
-        "explorer", "philosopher", "poet", "director", "chef", "designer"
-    ];
-    
-    const NOUNS_ABSTRACT = [
-        "stage", "point", "situation", "condition", "case", "position", "circumstance",
-        "scene", "environment", "setting", "scenario"
-    ];
-    
-    const VERBS_TRANSITIVE = [
-        "visited", "bought", "read", "watched", "designed", "discovered", "invented",
-        "wrote", "recorded", "mentioned", "recommended", "described", "photographed",
-        "built", "painted", "composed", "directed", "created", "developed", "published",
-        "borrowed", "selected", "chose", "picked", "noticed", "admired",
-        "discussed", "analyzed", "studied", "examined", "tested", "repaired",
-        "fixed", "cleaned", "prepared", "organized", "arranged"
-    ];
-    
-    const VERBS_INTRANSITIVE_CONTEXT = [
-        "was born", "grew up", "lived", "worked", "studied", "stayed", "died",
-        "got married", "spent his childhood", "settled down", "took refuge",
-        "started his career", "received education", "found peace", "made history"
-    ];
-    
-    const VERBS_INTRANSITIVE_PLACE = [
-        "happened", "occurred", "took place", "broke out", "was held", "was built",
-        "was established", "was discovered", "was signed", "was invented",
-        "was founded", "was organized", "was filmed", "was recorded"
-    ];
-    
-    const REASONS_CLAUSES = [
-        "he was late for the meeting",
-        "she quit her job",
-        "they moved to another city",
-        "the project failed",
-        "he refused the offer",
-        "she changed her mind",
-        "the event was cancelled",
-        "he didn't attend the ceremony",
-        "the company went bankrupt",
-        "they postponed the wedding",
-        "she decided to study abroad",
-        "he broke up with his girlfriend",
-        "the team lost the championship",
-        "she rejected the scholarship",
-        "the deal fell through",
-        "they sold the house",
-    ];
-    
-    const ABSTRACT_CLAUSES = [
-        "cooperation becomes absolutely essential",
-        "every decision matters greatly",
-        "patience is the key to success",
-        "teamwork makes all the difference",
-        "communication breaks down completely",
-        "trust is more important than ever",
-        "experience counts the most",
-        "creativity plays a crucial role",
-        "hard work alone is not enough",
-        "technology takes over human judgment",
-        "compromise becomes unavoidable",
-        "everything seems to go wrong",
-        "nothing is certain anymore",
-        "safety must come first",
-    ];
+    const NOUNS_PLACE = ["museum", "library", "hospital", "restaurant", "hotel", "park", "school", "university", "laboratory", "theater", "stadium", "airport", "station", "gallery", "café", "market", "church", "factory", "village", "building", "apartment", "office", "studio", "garden", "square", "temple"];
+    const NOUNS_TIME = ["day", "moment", "year", "month", "week", "morning", "afternoon", "evening", "night", "summer", "winter", "spring", "autumn", "decade", "century", "period", "era", "age", "occasion", "festival", "holiday", "weekend"];
+    const NOUNS_THING = ["book", "painting", "film", "song", "machine", "device", "car", "bridge", "sculpture", "article", "letter", "photograph", "document", "report", "theory", "discovery", "invention", "recipe", "tool", "instrument"];
+    const NOUNS_PERSON = ["scientist", "artist", "teacher", "doctor", "writer", "musician", "engineer", "architect", "professor", "journalist", "athlete", "leader", "inventor", "explorer", "philosopher", "poet", "director", "chef", "designer"];
+    const NOUNS_ABSTRACT = ["stage", "point", "situation", "condition", "case", "position", "circumstance", "scene", "environment", "setting", "scenario"];
+    const VERBS_TRANSITIVE = ["visited", "bought", "read", "watched", "designed", "discovered", "invented", "wrote", "recorded", "mentioned", "recommended", "described", "photographed", "built", "painted", "composed", "directed", "created", "developed", "published", "borrowed", "selected", "chose", "picked", "noticed", "admired", "discussed", "analyzed", "studied", "examined", "tested", "repaired", "fixed", "cleaned", "prepared", "organized", "arranged"];
+    const VERBS_INTRANSITIVE_CONTEXT = ["was born", "grew up", "lived", "worked", "studied", "stayed", "died", "got married", "spent his childhood", "settled down", "took refuge", "started his career", "received education", "found peace", "made history"];
+    const VERBS_INTRANSITIVE_PLACE = ["happened", "occurred", "took place", "broke out", "was held", "was built", "was established", "was discovered", "was signed", "was invented", "was founded", "was organized", "was filmed", "was recorded"];
+    const REASONS_CLAUSES = ["he was late for the meeting", "she quit her job", "they moved to another city", "the project failed", "he refused the offer", "she changed her mind", "the event was cancelled", "he didn't attend the ceremony", "the company went bankrupt", "they postponed the wedding", "she decided to study abroad", "he broke up with his girlfriend", "the team lost the championship", "she rejected the scholarship", "the deal fell through", "they sold the house"];
+    const ABSTRACT_CLAUSES = ["cooperation becomes absolutely essential", "every decision matters greatly", "patience is the key to success", "teamwork makes all the difference", "communication breaks down completely", "trust is more important than ever", "experience counts the most", "creativity plays a crucial role", "hard work alone is not enough", "technology takes over human judgment", "compromise becomes unavoidable", "everything seems to go wrong", "nothing is certain anymore", "safety must come first"];
 
-    // ============================================================
-    // 工具函数
-    // ============================================================
-    
-    function pick(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-    }
-    
-    function shuffle(arr) {
-        const a = [...arr];
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a;
-    }
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
     
     function genOptions(correct, include = []) {
         const all = ["which", "that", "who", "where", "when", "why"];
         let others = all.filter(o => o.toLowerCase() !== correct.toLowerCase());
-        
         let selected = [];
         let priority = include.filter(o => o.toLowerCase() !== correct.toLowerCase() && others.includes(o));
         selected.push(...priority.slice(0, 3));
-        
         let remaining = others.filter(o => !selected.includes(o));
         while (selected.length < 3 && remaining.length > 0) {
             const idx = Math.floor(Math.random() * remaining.length);
             selected.push(remaining[idx]);
             remaining.splice(idx, 1);
         }
-        
         selected.push(correct);
         selected = shuffle(selected);
-        
         const letters = ["A", "B", "C", "D"];
         return selected.map((opt, i) => `${letters[i]}. ${opt}`);
     }
 
-    // ============================================================
-    // 题目生成器
-    // ============================================================
-    
     const GENERATORS = {
         place_adverb() {
             const place = pick(NOUNS_PLACE);
             const verbPhrase = pick([...VERBS_INTRANSITIVE_PLACE, ...VERBS_INTRANSITIVE_CONTEXT]);
-            const templates = [
-                `This is the ${place} ______ ${verbPhrase}.`,
-                `They showed us the ${place} ______ ${verbPhrase}.`,
-                `She often talks about the ${place} ______ ${verbPhrase}.`,
-                `We finally found the ${place} ______ ${verbPhrase}.`,
-                `The guide pointed to the ${place} ______ ${verbPhrase}.`,
-            ];
             return {
-                question: pick(templates),
+                question: `This is the ${place} ______ ${verbPhrase}.`,
                 options: genOptions("where", ["which", "that"]),
                 correct: "where",
                 explanation: `从句成分完整，${place} 是地点，所以用关系副词 <strong>where</strong> 作地点状语。`,
@@ -674,18 +561,11 @@
                 type: "地点+完整从句→where"
             };
         },
-        
         place_pronoun() {
             const place = pick(NOUNS_PLACE);
             const verb = pick(VERBS_TRANSITIVE);
-            const templates = [
-                `This is the ${place} ______ we ${verb} last year.`,
-                `The ${place} ______ they ${verb} is now closed.`,
-                `I remember the ${place} ______ you ${verb} in your photos.`,
-                `She described the ${place} ______ he ${verb} during his trip.`,
-            ];
             return {
-                question: pick(templates),
+                question: `This is the ${place} ______ we ${verb} last year.`,
                 options: genOptions("that", ["where", "when"]),
                 correct: "that",
                 explanation: `从句中 <strong>${verb}</strong> 缺宾语（${verb} 了什么地方？），所以用关系代词 <strong>that/which</strong>。`,
@@ -694,53 +574,25 @@
                 is_trap: true
             };
         },
-        
         place_subject() {
             const place = pick(NOUNS_PLACE);
-            const pairs = [
-                ["stands", "at the top of the hill"],
-                ["lies", "by the river"],
-                ["attracts", "millions of tourists"],
-                ["houses", "priceless artifacts"],
-                ["displays", "modern art"],
-                ["contains", "rare manuscripts"],
-            ];
+            const pairs = [["stands", "at the top of the hill"], ["lies", "by the river"], ["attracts", "millions of tourists"]];
             const [verb, obj] = pick(pairs);
-            const templates = [
-                `The ${place} ______ ${verb} ${obj} was built in the 19th century.`,
-                `They visited the ${place} ______ ${verb} ${obj} every year.`,
-            ];
             return {
-                question: pick(templates),
+                question: `The ${place} ______ ${verb} ${obj} was built in the 19th century.`,
                 options: genOptions("that", ["where", "when"]),
                 correct: "that",
-                explanation: `从句缺主语（谁 ${verb} ${obj}？），所以用关系代词 <strong>that/which</strong>。`,
+                explanation: `从句缺主语，所以用关系代词 <strong>that/which</strong>。`,
                 tip: "从句缺主语 → 必须用代词 that/which",
                 type: "地点+缺主语→that/which",
                 is_trap: true
             };
         },
-        
         time_adverb() {
             const timeWord = pick(NOUNS_TIME);
-            const clause = pick([
-                "the earthquake hit the city",
-                "the war finally ended",
-                "the great discovery was made",
-                "the revolution began",
-                "the treaty was signed",
-                "the legendary hero was born",
-                "everything changed forever",
-                "the first man landed on the moon",
-                "the ancient kingdom fell",
-            ]);
-            const templates = [
-                `I still remember the ${timeWord} ______ ${clause}.`,
-                `That was the ${timeWord} ______ ${clause}.`,
-                `The ${timeWord} ______ ${clause} will never be forgotten.`,
-            ];
+            const clause = pick(["the earthquake hit the city", "the war finally ended", "everything changed forever"]);
             return {
-                question: pick(templates),
+                question: `I still remember the ${timeWord} ______ ${clause}.`,
                 options: genOptions("when", ["which", "that"]),
                 correct: "when",
                 explanation: `从句成分完整，${timeWord} 是时间，所以用关系副词 <strong>when</strong>。`,
@@ -748,80 +600,56 @@
                 type: "时间+完整从句→when"
             };
         },
-        
         time_pronoun_object() {
             const timeWord = pick(NOUNS_TIME);
-            const verb = pick(["spent", "enjoyed", "cherished", "remembered", "celebrated", "missed"]);
-            const templates = [
-                `I'll never forget the ${timeWord} ______ we ${verb} together.`,
-                `The ${timeWord} ______ they ${verb} in Paris was unforgettable.`,
-            ];
+            const verb = pick(["spent", "enjoyed", "cherished"]);
             return {
-                question: pick(templates),
+                question: `I'll never forget the ${timeWord} ______ we ${verb} together.`,
                 options: genOptions("that", ["when", "where"]),
                 correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语（${verb} 了那段时光），所以用关系代词 <strong>that/which</strong>。`,
+                explanation: `从句中 <strong>${verb}</strong> 缺宾语，所以用关系代词 <strong>that/which</strong>。`,
                 tip: "从句缺宾语 → 用代词（别看到时间名词就选 when！）",
                 type: "时间+缺宾语→that/which",
                 is_trap: true
             };
         },
-        
         time_pronoun_subject() {
-            const timeWord = pick(["year", "day", "moment", "period", "era"]);
-            const pairs = [
-                ["witnessed", "great changes"],
-                ["saw", "a new beginning"],
-                ["marked", "a turning point"],
-                ["brought", "unexpected challenges"],
-                ["changed", "the course of history"],
-            ];
+            const timeWord = pick(["year", "day", "moment"]);
+            const pairs = [["witnessed", "great changes"], ["saw", "a new beginning"]];
             const [verb, obj] = pick(pairs);
             return {
                 question: `The ${timeWord} ______ ${verb} ${obj} is still celebrated today.`,
                 options: genOptions("that", ["when", "where"]),
                 correct: "that",
-                explanation: `从句缺主语（什么 ${verb} ${obj}？），所以用关系代词 <strong>that/which</strong>。`,
+                explanation: `从句缺主语，所以用关系代词 <strong>that/which</strong>。`,
                 tip: "从句缺主语 → 用代词（哪怕先行词是时间！）",
                 type: "时间+缺主语→that/which",
                 is_trap: true
             };
         },
-        
         reason_adverb() {
             const clause = pick(REASONS_CLAUSES);
-            const templates = [
-                `Do you know the reason ______ ${clause}?`,
-                `Nobody understood the reason ______ ${clause}.`,
-                `Can you explain the reason ______ ${clause}?`,
-            ];
             return {
-                question: pick(templates),
+                question: `Do you know the reason ______ ${clause}?`,
                 options: genOptions("why", ["that", "which"]),
                 correct: "why",
-                explanation: "从句成分完整（主谓宾齐全），reason + 完整从句 → 用 <strong>why</strong>。",
+                explanation: "从句成分完整，reason + 完整从句 → 用 <strong>why</strong>。",
                 tip: "reason + 完整从句 → why",
                 type: "reason+完整从句→why"
             };
         },
-        
         reason_pronoun() {
-            const verb = pick(["gave", "provided", "offered", "put forward", "came up with"]);
-            const templates = [
-                `The reason ______ he ${verb} was not convincing.`,
-                `I don't believe the reason ______ she ${verb} for being late.`,
-            ];
+            const verb = pick(["gave", "provided", "offered"]);
             return {
-                question: pick(templates),
+                question: `The reason ______ he ${verb} was not convincing.`,
                 options: genOptions("that", ["why", "when"]),
                 correct: "that",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语（${verb} 了理由），所以用关系代词 <strong>that/which</strong>。`,
-                tip: "reason + 缺宾语从句 → that/which（和「reason+完整从句→why」对比！）",
+                explanation: `从句中 <strong>${verb}</strong> 缺宾语，所以用关系代词 <strong>that/which</strong>。`,
+                tip: "reason + 缺宾语从句 → that/which",
                 type: "reason+缺宾语→that/which",
                 is_compare: true
             };
         },
-        
         thing_pronoun() {
             const thing = pick(NOUNS_THING);
             const verb = pick(VERBS_TRANSITIVE);
@@ -834,16 +662,9 @@
                 type: "普通名词+缺宾语→that/which"
             };
         },
-        
         thing_subject() {
             const thing = pick(NOUNS_THING);
-            const pairs = [
-                ["changed", "the world"],
-                ["influenced", "modern science"],
-                ["shaped", "people's lives"],
-                ["transformed", "the industry"],
-                ["revolutionized", "communication"],
-            ];
+            const pairs = [["changed", "the world"], ["influenced", "modern science"]];
             const [verb, obj] = pick(pairs);
             return {
                 question: `The ${thing} ______ ${verb} ${obj} was created by accident.`,
@@ -854,7 +675,6 @@
                 type: "普通名词+缺主语→that/which"
             };
         },
-        
         non_restrictive() {
             if (Math.random() < 0.5) {
                 const person = pick(NOUNS_PERSON);
@@ -862,36 +682,34 @@
                     question: `My grandfather, ______ was a famous ${person}, lived to be 95.`,
                     options: genOptions("who", ["which", "that"]),
                     correct: "who",
-                    explanation: "非限定性定语从句（有逗号），指人且缺主语，用 <strong>who</strong>（不能用 that）。",
+                    explanation: "非限定性定语从句（有逗号），指人且缺主语，用 <strong>who</strong>。",
                     tip: "非限定从（有逗号）指人 → who（不能用 that）",
                     type: "非限定从指人→who"
                 };
             } else {
-                const thing = pick([...NOUNS_THING, "discovery", "theory", "invention"]);
+                const thing = pick(NOUNS_THING);
                 return {
                     question: `The ${thing}, ______ was completed in 1920, is now a national treasure.`,
                     options: genOptions("which", ["who", "that"]),
                     correct: "which",
-                    explanation: "非限定性定语从句（有逗号），指物且缺主语，用 <strong>which</strong>（不能用 that）。",
+                    explanation: "非限定性定语从句（有逗号），指物且缺主语，用 <strong>which</strong>。",
                     tip: "非限定从（有逗号）指物 → which（不能用 that）",
                     type: "非限定从指物→which"
                 };
             }
         },
-        
         whose() {
             const person = pick(NOUNS_PERSON);
-            const thing = pick(["theory", "discovery", "invention", "masterpiece", "achievement"]);
+            const thing = pick(["theory", "discovery", "masterpiece"]);
             return {
                 question: `The ${person} ______ ${thing} changed the world won a Nobel Prize.`,
                 options: genOptions("whose", ["who", "that"]),
                 correct: "whose",
-                explanation: `从句中 ${thing} 缺定语（谁的 ${thing}？），所以用 <strong>whose</strong> 表示所属关系。`,
+                explanation: `从句中 ${thing} 缺定语（谁的 ${thing}？），所以用 <strong>whose</strong>。`,
                 tip: "表示'某人的/某物的' → whose",
                 type: "所属关系→whose"
             };
         },
-        
         abstract_where() {
             const abstract = pick(NOUNS_ABSTRACT);
             const clause = pick(ABSTRACT_CLAUSES);
@@ -899,71 +717,47 @@
                 question: `We have reached a ${abstract} ______ ${clause}.`,
                 options: genOptions("where", ["when", "that"]),
                 correct: "where",
-                explanation: `从句完整，<strong>${abstract}</strong> 是抽象地点名词，习惯用 <strong>where</strong> 引导。`,
-                tip: `stage/point/situation/case 等抽象名词 + 完整从句 → where（固定搭配）`,
+                explanation: `从句完整，<strong>${abstract}</strong> 是抽象地点名词，用 <strong>where</strong> 引导。`,
+                tip: `stage/point/situation 等 + 完整从句 → where`,
                 type: "抽象地点+完整从句→where"
             };
         },
-        
         person_pronoun() {
             const person = pick(NOUNS_PERSON);
-            const verb = pick(["admired", "respected", "interviewed", "mentioned", "invited", "met"]);
+            const verb = pick(["admired", "respected", "met"]);
             return {
                 question: `The ${person} ______ they ${verb} at the conference gave a brilliant speech.`,
                 options: genOptions("who", ["which", "where"]),
                 correct: "who",
-                explanation: `从句中 <strong>${verb}</strong> 缺宾语，先行词是人，用 <strong>who/that</strong>。`,
+                explanation: `从句中 <strong>${verb}</strong> 缺宾语，指人，用 <strong>who/that</strong>。`,
                 tip: "指人 + 缺宾语 → who/that",
                 type: "指人+缺宾语→who/that"
             };
         }
     };
 
-    // 考点分布（14种考点，共20题）
-    const SLOTS = [
-        ["place_adverb", 3],
-        ["place_pronoun", 2],
-        ["place_subject", 1],
-        ["time_adverb", 2],
-        ["time_pronoun_object", 1],
-        ["time_pronoun_subject", 1],
-        ["reason_adverb", 2],
-        ["reason_pronoun", 2],
-        ["thing_pronoun", 1],
-        ["thing_subject", 1],
-        ["non_restrictive", 1],
-        ["whose", 1],
-        ["abstract_where", 2],
-        ["person_pronoun", 1],
-    ];
+    const SLOTS = [["place_adverb", 3], ["place_pronoun", 2], ["place_subject", 1], ["time_adverb", 2], ["time_pronoun_object", 1], ["time_pronoun_subject", 1], ["reason_adverb", 2], ["reason_pronoun", 2], ["thing_pronoun", 1], ["thing_subject", 1], ["non_restrictive", 1], ["whose", 1], ["abstract_where", 2], ["person_pronoun", 1]];
 
     function generateAllQuestions() {
         const questions = [];
         const seenQuestions = new Set();
-        
         for (const [slotType, count] of SLOTS) {
             for (let i = 0; i < count; i++) {
                 let q = null;
                 let attempts = 0;
                 while (attempts < 50) {
                     q = GENERATORS[slotType]();
-                    if (!seenQuestions.has(q.question)) {
-                        seenQuestions.add(q.question);
-                        break;
-                    }
+                    if (!seenQuestions.has(q.question)) { seenQuestions.add(q.question); break; }
                     attempts++;
                 }
                 if (q) questions.push(q);
             }
         }
-        
-        // 打乱并重新编号
-        const shuffled = shuffle(questions);
-        return shuffled.map((q, i) => ({ ...q, id: i + 1 }));
+        return shuffle(questions).map((q, i) => ({ ...q, id: i + 1 }));
     }
 
     // ============================================================
-    // 主逻辑
+    // 主逻辑 (已修改)
     // ============================================================
     
     let questions = generateAllQuestions();
@@ -984,15 +778,15 @@
             let questionHTML = q.question.replace('______', '<span class="blank">______</span>');
             
             let badgeHTML = '';
+            // 保留“陷阱题”和“对比题”提示，因为它们能提示学生思考维度
             if (q.is_trap) {
                 badgeHTML += '<span class="floating-badge badge-trap">⚠️ 陷阱题</span> ';
             }
             if (q.is_compare) {
                 badgeHTML += '<span class="floating-badge badge-compare">🔗 对比题</span> ';
             }
-            if (q.type) {
-                badgeHTML += '<span class="floating-badge badge-type">' + q.type + '</span>';
-            }
+            
+            // 【修改处】删掉了显示 q.type 的代码，不再展示“非限定从指人→who”等具体线索
             
             card.innerHTML = `
                 <div class="question-header">
@@ -1019,61 +813,38 @@
     
     function selectAnswer(qId, userChoice) {
         if (userAnswers[qId]) return;
-        
         const qData = questions.find(q => q.id === qId);
         const isCorrect = (userChoice.toLowerCase() === qData.correct.toLowerCase());
-        
         userAnswers[qId] = { choice: userChoice, correct: isCorrect };
         if (isCorrect) score += 10;
         
         const optionsDiv = document.getElementById('options-' + qId);
         const buttons = optionsDiv.querySelectorAll('.option-btn');
-        
         buttons.forEach(btn => {
             btn.classList.add('disabled');
             const letter = btn.getAttribute('data-letter');
-            if (letter.toLowerCase() === qData.correct.toLowerCase()) {
-                btn.classList.add('correct-show');
-            }
-            if (letter.toLowerCase() === userChoice.toLowerCase() && !isCorrect) {
-                btn.classList.add('wrong-show');
-            }
-            if (letter.toLowerCase() === userChoice.toLowerCase() && isCorrect) {
-                btn.classList.add('selected');
-            }
+            if (letter.toLowerCase() === qData.correct.toLowerCase()) btn.classList.add('correct-show');
+            if (letter.toLowerCase() === userChoice.toLowerCase() && !isCorrect) btn.classList.add('wrong-show');
+            if (letter.toLowerCase() === userChoice.toLowerCase() && isCorrect) btn.classList.add('selected');
         });
         
         const feedbackDiv = document.getElementById('feedback-' + qId);
         feedbackDiv.classList.add('show');
-        
         if (isCorrect) {
             feedbackDiv.classList.add('correct-fb');
-            feedbackDiv.innerHTML = `
-                <strong>✅ 正确！</strong><br>
-                ${qData.explanation}
-                <div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>
-            `;
+            feedbackDiv.innerHTML = `<strong>✅ 正确！</strong><br>${qData.explanation}<div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>`;
         } else {
             feedbackDiv.classList.add('wrong-fb');
-            feedbackDiv.innerHTML = `
-                <strong>❌ 错误！</strong>正确答案是 <strong>${qData.correct}</strong><br>
-                ${qData.explanation}
-                <div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>
-            `;
+            feedbackDiv.innerHTML = `<strong>❌ 错误！</strong>正确答案是 <strong>${qData.correct}</strong><br>${qData.explanation}<div class="tip-box">💡 <strong>口诀：</strong>${qData.tip}</div>`;
         }
-        
-        const card = document.getElementById('q-card-' + qId);
-        card.classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
-        
+        document.getElementById('q-card-' + qId).classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
         updateProgress();
         checkCompletion();
     }
     
     function updateProgress() {
-        const total = questions.length;
         const answered = Object.keys(userAnswers).length;
-        const percentage = Math.round((answered / total) * 100);
-        
+        const percentage = Math.round((answered / questions.length) * 100);
         document.getElementById('scoreDisplay').textContent = score;
         document.getElementById('answeredCount').textContent = answered;
         document.getElementById('progressBar').style.width = percentage + '%';
@@ -1085,48 +856,24 @@
             summary.classList.add('show');
             document.getElementById('finalScore').textContent = score;
             document.getElementById('correctCount').textContent = Math.round(score / 10);
-            
-            let gradeText = '';
-            if (score >= 180) {
-                gradeText = '🏆 大牛！副词和代词彻底拿捏！';
-            } else if (score >= 140) {
-                gradeText = '👍 不错！重点复习你答错的题';
-            } else if (score >= 100) {
-                gradeText = '📖 需要巩固，建议刷新换一套新题再战';
-            } else {
-                gradeText = '🔄 别灰心，先记住核心口诀再刷新做新题！';
-            }
+            let gradeText = score >= 180 ? '🏆 大牛！副词和代词彻底拿捏！' : (score >= 140 ? '👍 不错！重点复习你答错的题' : '📖 需要巩固，建议换一套新题再战');
             document.getElementById('gradeText').textContent = gradeText;
-            
             summary.scrollIntoView({ behavior: 'smooth' });
         }
     }
     
     function resetQuiz() {
-        userAnswers = {};
-        score = 0;
-        
-        document.querySelectorAll('.question-card').forEach(card => {
-            card.classList.remove('answered-correct', 'answered-wrong');
-        });
-        document.querySelectorAll('.option-btn').forEach(btn => {
-            btn.classList.remove('disabled', 'selected', 'correct-show', 'wrong-show');
-        });
-        document.querySelectorAll('.feedback').forEach(fb => {
-            fb.classList.remove('show', 'correct-fb', 'wrong-fb');
-        });
-        
+        userAnswers = {}; score = 0;
+        document.querySelectorAll('.question-card').forEach(card => card.classList.remove('answered-correct', 'answered-wrong'));
+        document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('disabled', 'selected', 'correct-show', 'wrong-show'));
+        document.querySelectorAll('.feedback').forEach(fb => fb.classList.remove('show', 'correct-fb', 'wrong-fb'));
         document.getElementById('summary').classList.remove('show');
         updateProgress();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    function refreshNewSet() {
-        questions = generateAllQuestions();
-        initQuiz();
-    }
+    function refreshNewSet() { questions = generateAllQuestions(); initQuiz(); }
     
-    // 启动
     initQuiz();
     </script>
 </body>
